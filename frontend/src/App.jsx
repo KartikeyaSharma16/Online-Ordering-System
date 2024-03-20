@@ -1,56 +1,46 @@
-import { useState } from 'react'
-import CartItems from './components/Cart'
-import ItemCard from './components/ItemCard'
-import Payment from './components/Payments'
-import { BrowserRouter , Routes, Router, Route } from "react-router-dom";
- 
+import React,{ useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CartProvider } from "./components/Context/CartContext";
+import CartPage from "./components/Cart";
+import Payment from "./components/Payments";
+import Landing from "./components/Landing/Landing";
+import FirstScreen from "./components/Landing/FirstScreen";
+import { AuthProvider } from './components/Context/AuthContext';
+import NavBar from './components/NavBar/NavBar';
+import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
+import { UserProvider } from './components/Context/UserContext ';
+import Items from "./components/Items/Items";
+import Checkout from "./components/checkout/Checkout";
+import OrderSummary from "./components/OrderSummary/OrderSummary";
 
-
-
- 
-import Landing from './components/Landing/Landing';
-import FeedbackCrousel from './components/FeedbackCrousel'
-import FirstScreen from './components/Landing/FirstScreen';
-import Products from './components/Productcard';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
-    <div>
-      
-     <BrowserRouter>
-         
-         <Routes>
-           <Route path="/payment" element={<Payment />}></Route>
-           <Route path="/item" element={<ItemCard />}></Route>
-
-
-
-
-
-
-
-
-
-
-
- 
-           <Route path ="/" exact element={<Landing/>}/>
-           <Route path ="/try" exact element={<FirstScreen/>}/>
-        
-           {/* <Route path="/cart" element={<CartItems />}></Route>
-           <Route path="/chart" element={<Charts />}></Route> */}
- 
-           <Route path="/cart" element={<CartItems />}></Route>
-           <Route path="/product" element={<Products />}></Route>
-           {/* <Route path="/chart" element={<Charts />}></Route> */}
- 
-            
-         </Routes>
-       </BrowserRouter>
-    </div>
-  )
+    <React.StrictMode>
+      <CartProvider>
+        <AuthProvider>
+          <UserProvider>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/payment" element={<Payment />} />
+                <Route path="/item" element={<Items />} />
+                <Route path="/" exact element={<Landing />} />
+                <Route path="/try" exact element={<FirstScreen />} />
+                <Route path="/cart" element={<CartPage />} />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/order-summary" element={<OrderSummary />} />
+              </Routes>
+            </BrowserRouter>
+          </UserProvider>
+        </AuthProvider>
+      </CartProvider>
+    </React.StrictMode>
+  );
 }
 
-export default App
+export default App;

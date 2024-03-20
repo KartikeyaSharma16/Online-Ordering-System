@@ -1,35 +1,99 @@
-.prodCard{
-    width: 275px;
-    padding: 0px ;
-    border-radius: 20px !important;
+.prodCard {
+  width: calc(60% - 20px); /* Increase width */
+  max-width: 350px; 
+  border-radius: 20px !important;
+  margin-bottom: 20px;
 }
-.prodimage{
-    width: 100%;
-}
-.css-46bh2p-MuiCardContent-root {
-    padding: 0px !important;
 
+.outerCard {
+  padding: 0 10px;
 }
-.prodIntro,.CartItem{
+
+.prodimage {
+  width: 100%;
+  height: auto;
+}
+
+.prodDetails {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.CardActions {
+  display: flex;
+  justify-content: center;
+}
+
+.Cart {
+  background-color: #f48e28 !important;
+  border-radius: 20px !important;
+  font-size: 14px;
+  padding: 8px 16px;
+}
+
+@media only screen and (max-width: 768px) {
+  .prodCard {
+    /* width: calc(100% - 20px); */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: row;
+    max-width:600px !important;
+    width:550px !important
+  }
+
+  .prodimage {
+    width: 55%;
+    height: 50%;
+  }
+
+  .prodDetails {
+    flex: 1;
     padding: 10px;
+    font-size: 15px;
+  }
+
+  .prodDetails h5,
+  .prodDetails p {
+    margin: 0;
+  }
+
+  .ProdSection1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .addtoCard {
+    width: auto; /* Adjust width as needed */
+  }
+
+  /* Update the .Cart class for mobile view */
+.Cart {
+  background-color: #f48e28 !important;
+  border-radius: 20px !important;
+  font-size: 14px !important; /* Decrease font size for mobile */
+  padding: 4px 8px; /* Decrease padding for mobile */
 }
-.prodIntro>span>svg{
-    color: #f48e28;
+
+/* Update the .prodDetails class for mobile view */
+.prodDetails {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to start for mobile */
 }
-.Cart{
-    background-color: #f48e28 !important;
-    border-radius: 20px !important;
+
+/* Add new class for mobile view to display image, name, and price side by side */
+.MobileProdInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
-.CartItem{
-padding: 6px !important;
+.ProdConCard{
+  width:60% !important;
 }
-.css-dnrpxu-MuiCardActions-root{
-    padding: 0px;
+.prodName{
+  font-size:14px !important;
 }
-.outerCard{
-    width: 33%;
-    padding: 10px 0px;
 }
